@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "pfoods",
+	"version": "${version}",
+	"name": "Potato Foods",
+	"description": "Adds potato inspired Foods.",
+	"authors": [
+		"QueDoom"
+	],
+	"contact": {
+		"homepage": "https://munhco.online/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/pfoods/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.quedoom.pfoods.PotatoFoods"
+		],
+		"fabric-datagen": [
+			"net.quedoom.pfoods.PotatoFoodsDataGenerator"
+		],
+        "client": [
+            "net.quedoom.pfoods.PotatoFoodsClient"
+        ]
+	},
+	"mixins": [
+		"pfoods.mixins.json"
+	],
+
+
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
