@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "group": "gol_baked_pot",
+  "category": "food",
+  "ingredient": {
+    "item": "pfoods:golden_potato"
+  },
+  "result": {
+    "id": "pfoods:golden_baked_potato"
+  },
+  "cookingtime": 600,
+  "experiance": 0.35
+}

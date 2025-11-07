@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://munhco.online/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/QueDoom/pfoods"
 	},
 	"license": "MIT",
 	"icon": "assets/pfoods/icon.png",

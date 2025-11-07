@@ -2,6 +2,7 @@ package net.quedoom.pfoods;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.quedoom.pfoods.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,7 @@ public class PotatoFoods implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+        ModItems.registerModItems();
 
 
 	}

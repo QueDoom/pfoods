@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pfoods:item/golden_poisonous_potato"
+  }
+}

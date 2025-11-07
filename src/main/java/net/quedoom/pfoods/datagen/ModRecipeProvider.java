@@ -1,0 +1,97 @@
+package net.quedoom.pfoods.datagen;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.BlastingRecipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.recipe.SmokingRecipe;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryWrapper;
+import net.quedoom.pfoods.GetIdentifierWithoutNamespaceFromItem;
+import net.quedoom.pfoods.datagen.util.GoldenAppleLikeRecipeJsonBuilder;
+import net.quedoom.pfoods.item.ModItems;
+import net.quedoom.pfoods.item.custom.GoldenPotatoItem;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class ModRecipeProvider extends FabricRecipeProvider {
+
+    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
+    }
+
+    @Override
+    public void generate(RecipeExporter recipeExporter) {
+        //offer...
+        //ShapedRecipeJsonBuilder
+        //ShapelessRecipeJsonBuilder
+        List<ItemConvertible> BAKED_POISONOUS_POTATO_SMELTABLES = List.of(Items.POISONOUS_POTATO);
+        List<ItemConvertible> GOLDEN_BAKED_POISONOUS_POTATO_SMELTABLES = List.of(ModItems.GOLDEN_POISONOUS_POTATO);
+        List<ItemConvertible> GOLDEN_BAKED_POTATO_SMELTABLES = List.of(ModItems.GOLDEN_POTATO);
+
+
+        offerSmelting(recipeExporter, BAKED_POISONOUS_POTATO_SMELTABLES, RecipeCategory.FOOD, ModItems.BAKED_POISONOUS_POTATO, 2f, 200, GetIdentifierWithoutNamespaceFromItem.get(ModItems.BAKED_POISONOUS_POTATO));
+        offerSmoking(recipeExporter, BAKED_POISONOUS_POTATO_SMELTABLES, RecipeCategory.FOOD, ModItems.BAKED_POISONOUS_POTATO, 2f, 100, GetIdentifierWithoutNamespaceFromItem.get(ModItems.BAKED_POISONOUS_POTATO));
+
+        offerSmelting(recipeExporter, GOLDEN_BAKED_POISONOUS_POTATO_SMELTABLES, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POISONOUS_POTATO, 2f, 200, GetIdentifierWithoutNamespaceFromItem.get(ModItems.GOLDEN_BAKED_POISONOUS_POTATO));
+        offerSmoking(recipeExporter, GOLDEN_BAKED_POISONOUS_POTATO_SMELTABLES, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POISONOUS_POTATO, 2f, 100, GetIdentifierWithoutNamespaceFromItem.get(ModItems.GOLDEN_BAKED_POISONOUS_POTATO));
+
+        offerSmelting(recipeExporter, GOLDEN_BAKED_POTATO_SMELTABLES, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POTATO, 2f, 200, GetIdentifierWithoutNamespaceFromItem.get(ModItems.GOLDEN_BAKED_POTATO));
+        offerSmoking(recipeExporter, GOLDEN_BAKED_POTATO_SMELTABLES, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POTATO, 2f, 100, GetIdentifierWithoutNamespaceFromItem.get(ModItems.GOLDEN_BAKED_POTATO));
+
+
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_POTATO, Items.GOLD_NUGGET, Items.POTATO);
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POTATO, Items.GOLD_NUGGET, Items.BAKED_POTATO);
+
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_POISONOUS_POTATO, Items.GOLD_NUGGET, Items.POISONOUS_POTATO);
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POISONOUS_POTATO, Items.GOLD_NUGGET, ModItems.BAKED_POISONOUS_POTATO);
+
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.SATURATED_POTATO, Items.BAKED_POTATO, Blocks.DANDELION);
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_SATURATED_POTATO, ModItems.GOLDEN_BAKED_POTATO, Blocks.DANDELION);
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_SATURATED_POTATO, Items.GOLD_INGOT, ModItems.SATURATED_POTATO, "golden_saturated_potato_other");
+
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.SATURATED_POISONOUS_POTATO, ModItems.BAKED_POISONOUS_POTATO, Blocks.DANDELION);
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_SATURATED_POISONOUS_POTATO, ModItems.GOLDEN_BAKED_POISONOUS_POTATO, Blocks.DANDELION);
+        GoldenAppleLikeRecipeJsonBuilder.create(recipeExporter, RecipeCategory.FOOD, ModItems.GOLDEN_SATURATED_POISONOUS_POTATO, Items.GOLD_INGOT, ModItems.SATURATED_POISONOUS_POTATO, "golden_saturated_poisonous_potato_other");
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ENCHANTED_GOLDEN_POISONOUS_POTATO, 1)
+                .pattern("BPB")
+                .pattern("PPP")
+                .pattern("BPB")
+                .input('B', Items.ENCHANTED_BOOK)
+                .input('P', ModItems.GOLDEN_POISONOUS_POTATO)
+                .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
+                .criterion(hasItem(ModItems.GOLDEN_POISONOUS_POTATO), conditionsFromItem(ModItems.GOLDEN_POISONOUS_POTATO))
+                .group("ench_gold_poi_pot")
+        ;
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ENCHANTED_GOLDEN_BAKED_POISONOUS_POTATO, 1)
+                .pattern("BPB")
+                .pattern("PPP")
+                .pattern("BPB")
+                .input('B', Items.ENCHANTED_BOOK)
+                .input('P', ModItems.GOLDEN_BAKED_POISONOUS_POTATO)
+                .criterion(hasItem(Items.ENCHANTED_BOOK), conditionsFromItem(Items.ENCHANTED_BOOK))
+                .criterion(hasItem(ModItems.GOLDEN_BAKED_POISONOUS_POTATO), conditionsFromItem(ModItems.GOLDEN_BAKED_POISONOUS_POTATO))
+                .group("ench_gold_baked_poi_pot")
+        ;
+
+    }
+
+
+
+
+    public static void offerSmoking(
+            RecipeExporter exporter, List<ItemConvertible> inputs, RecipeCategory category, ItemConvertible output, float experience, int cookingTime, String group
+    ) {
+        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, inputs, category, output, experience, cookingTime, group, "_from_smoking");
+    }
+}
