@@ -1,25 +1,22 @@
 package net.quedoom.pfoods.datagen.util;
 
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.RecipeGenerator;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.Item;
+
+import net.minecraft.data.recipe.RecipeExporter;
+import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
 import net.quedoom.pfoods.GetIdentifierWithoutNamespaceFromItem;
 import net.quedoom.pfoods.PotatoFoods;
 
-import static net.minecraft.data.server.recipe.RecipeGenerator.hasItem;
+import static net.minecraft.data.recipe.RecipeGenerator.hasItem;
+
 
 
 public class GoldenAppleLikeRecipeJsonBuilder {
 
 
 
-    public static void create(RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, int count, boolean centerCriteron) {
+    public static void create(net.minecraft.data.recipe.RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, int count, boolean centerCriteron) {
         if (centerCriteron) {
             recipeGenerator.createShaped(category, output, count)
                     .pattern("GGG")
@@ -43,7 +40,7 @@ public class GoldenAppleLikeRecipeJsonBuilder {
         }
     }
 
-    public static void create(RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, boolean centerCriteron) {
+    public static void create(net.minecraft.data.recipe.RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, boolean centerCriteron) {
         if (centerCriteron) {
             recipeGenerator.createShaped(category, output, 1)
                     .pattern("GGG")
@@ -68,7 +65,7 @@ public class GoldenAppleLikeRecipeJsonBuilder {
         }
     }
 
-    public static void create(RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, int count) {
+    public static void create(net.minecraft.data.recipe.RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, int count) {
         recipeGenerator.createShaped(category, output, count)
                 .pattern("GGG")
                 .pattern("GAG")
@@ -81,7 +78,7 @@ public class GoldenAppleLikeRecipeJsonBuilder {
         ;
     }
 
-    public static void create(RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center) {
+    public static void create(net.minecraft.data.recipe.RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center) {
         recipeGenerator.createShaped(category, output, 1)
                 .pattern("GGG")
                 .pattern("GAG")
@@ -95,7 +92,7 @@ public class GoldenAppleLikeRecipeJsonBuilder {
         ;
     }
 
-    public static void create(RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, String customName) {
+    public static void create(net.minecraft.data.recipe.RecipeGenerator recipeGenerator, RecipeExporter recipeExporter, RecipeCategory category, ItemConvertible output, ItemConvertible outline, ItemConvertible center, String customName) {
         recipeGenerator.createShaped(category, output, 1)
                 .pattern("GGG")
                 .pattern("GAG")

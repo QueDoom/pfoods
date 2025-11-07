@@ -2,12 +2,12 @@
   "type": "minecraft:campfire_cooking",
   "group": "baked_poi_pot",
   "category": "food",
-  "ingredient": {
-    "item": "minecraft:poisonous_potato"
-  },
+  "ingredient": [
+    "minecraft:poisonous_potato"
+  ],
   "result": {
     "id": "pfoods:baked_poisonous_potato"
   },
-  "cookingtime": 600,
-  "experiance": 0.35
+  "experience": 0.35,
+  "cookingtime": 600
 }

@@ -62,8 +62,8 @@ public class ModItems {
             entries.add(GOLDEN_POISONOUS_POTATO);
             entries.add(BAKED_POISONOUS_POTATO);
             entries.add(GOLDEN_BAKED_POISONOUS_POTATO);
-            entries.add(ENCHANTED_GOLDEN_BAKED_POISONOUS_POTATO);
             entries.add(ENCHANTED_GOLDEN_POISONOUS_POTATO);
+            entries.add(ENCHANTED_GOLDEN_BAKED_POISONOUS_POTATO);
             entries.add(SATURATED_POTATO);
             entries.add(GOLDEN_SATURATED_POTATO);
             entries.add(SATURATED_POISONOUS_POTATO);
